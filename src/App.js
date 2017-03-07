@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Link} from 'react-router';
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+
 
 class App extends Component {
   constructor(props) {
@@ -51,7 +54,7 @@ class App extends Component {
           <h3> Enter repository name to search</h3>
         <form onSubmit={this.handleSubmit}>
         <input type="text" onChange={this.handleChange} value={this.state.searchTerm} />
-        <button> Search </button>
+       <button>Search</button>
         </form>
         </div>
         <p className="App-intro">
@@ -72,7 +75,7 @@ class ShowResults extends Component{
           {
             (this.props.items.length>0) ? 
             this.props.items.map((item)=> {
-              return <li>{item.name}</li>
+              return <li><Link to="/try">{item.name}</Link></li>
             })
             :
             <div>No results!</div>
